@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-alkanet-dark: #1B5E20;
+  --color-alkanet-emerald: #66BB6A;
+  --color-alkanet-sage: #A5D6A7;
+  --color-alkanet-light: #E8F5E9;
+}
+
+:root {
+  --alkanet-dark: #1B5E20;
+  --alkanet-medium: #66BB6A;
+  --alkanet-sage: #A5D6A7;
+  --alkanet-light: #E8F5E9;
+}
+
+/* Custom Palette Utility Classes */
+.bg-alkanet-dark { background-color: #1B5E20; }
+.bg-alkanet-emerald { background-color: #66BB6A; }
+.bg-alkanet-sage { background-color: #A5D6A7; }
+.bg-alkanet-light { background-color: #E8F5E9; }
+
+.text-alkanet-dark { color: #1B5E20; }
+.text-alkanet-emerald { color: #66BB6A; }
+.text-alkanet-sage { color: #A5D6A7; }
+.text-alkanet-light { color: #E8F5E9; }
+
+.border-alkanet-dark { border-color: #1B5E20; }
+.border-alkanet-emerald { border-color: #66BB6A; }
+.border-alkanet-sage { border-color: #A5D6A7; }
+.border-alkanet-light { border-color: #E8F5E9; }
