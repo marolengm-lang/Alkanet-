@@ -17,6 +17,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 }) => {
   const post = BLOG_POSTS.find((p) => p.slug === slug) || BLOG_POSTS[0];
 
+  const [copied, setCopied] = React.useState(false);
+
   const shareArticle = () => {
     if (navigator.share) {
       navigator.share({
@@ -26,7 +28,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Article link copied to clipboard!');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
     }
   };
 
@@ -93,9 +96,19 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
             <span>By {post.author}</span>
             <button
               onClick={shareArticle}
-              className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold flex items-center gap-1.5 cursor-pointer"
+              className={`px-3 py-1.5 rounded-lg text-white font-semibold flex items-center gap-1.5 cursor-pointer transition-colors ${
+                copied ? 'bg-[#66BB6A]' : 'bg-white/10 hover:bg-white/20'
+              }`}
             >
-              <Share2 className="w-3.5 h-3.5" /> Share Article
+              {copied ? (
+                <>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-white" /> Link Copied!
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5" /> Share Article
+                </>
+              )}
             </button>
           </div>
         </div>
